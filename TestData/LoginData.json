@@ -1,0 +1,12 @@
+[
+  {
+    "user": "standard_user",
+    "password": "secret_sauce",
+    "isValid": true
+  },
+  {
+    "user": "test_user",
+    "password": "secret_sauce",
+     "isValid": false
+  }
+]

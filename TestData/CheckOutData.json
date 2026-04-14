@@ -1,0 +1,14 @@
+[
+  {
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "zipCode": "123456",
+    "isValid": true,
+  },
+    {
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "zipCode": "",
+    "isValid": false,
+  }
+]
