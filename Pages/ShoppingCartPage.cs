@@ -31,6 +31,7 @@ namespace ProyectoFinal.Pages
 			select.SelectByText(optionText);
 		}
 
+		// Método para obtener los precios de los productos en la página y convertirlos a una lista de números decimales
 		public List<double> GetPrices()
 		{
 			var lista = new List<double>();
@@ -45,28 +46,31 @@ namespace ProyectoFinal.Pages
 			return lista;
 		}
 
-
-		//Métodos necesarios para interactuar con los elementos de la página
+		// Método para hacer clic en el botón "Add to Cart" del producto "Sauce Labs Backpack"
 		public void Click_SauceLabsBackpack_AddCart()
 		{
 			AddSauceLabsBackpack_P1.Click();
 		}
 
+		// Método para verificar si el producto "Sauce Labs Backpack" ha sido removido del carrito, verificando que no haya elementos con la clase "shopping_cart_badge"
 		public bool Show_SauceLabsBackpack_RemovedCart()
 		{
 			return _driver.FindElements(By.ClassName("shopping_cart_badge")).Count == 0;
 		}
 
+		// Método para hacer clic en el enlace del carrito de compras para navegar a la página del carrito
 		public void Click_ShoppingCartLink()
 		{
 			ShoppingCartLink.Click();
 		}
 
+		// Método para mostrar la cantidad de productos en el carrito, obteniendo el texto del elemento que muestra la cantidad
 		public string Show_CartCount()
 		{
 			return CartCount.Text;
 		}
 
+		// Método para hacer clic en el botón "Remove" del producto "Sauce Labs Backpack" para eliminarlo del carrito
 		public void Click_SauceLabsBackpack_RemoveCart()
 		{
 			RemoveSauceLabsBackpack_P1.Click();

@@ -30,11 +30,11 @@ ProyectoFinal/
    git clone https://github.com/fportuguezc/Soft740-FrancinniPortuguez.git
 
 2. Restaurar
-```bash
-   dotnet restore
+    ```bash
+    dotnet restore
 
 3. Instalar paquetes NuGet necesarios:
-```bash
+    ```bash
     dotnet add package Selenium.WebDriver
     dotnet add package Selenium.Support
     dotnet add package NUnit
@@ -42,7 +42,7 @@ ProyectoFinal/
     dotnet add package RestSharp
     dotnet add package ExtentReports
     dotnet add package Newtonsoft.Json
-```` 
+
 ---
 
 ## Escenarios Implementados

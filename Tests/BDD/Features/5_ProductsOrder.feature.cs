@@ -109,13 +109,13 @@ namespace ProyectoFinal.Tests.BDD.Features
         }
         
         [global::NUnit.Framework.TestAttribute()]
-        [global::NUnit.Framework.DescriptionAttribute("Successful sorted low to high by price products")]
-        public async global::System.Threading.Tasks.Task SuccessfulSortedLowToHighByPriceProducts()
+        [global::NUnit.Framework.DescriptionAttribute("Successful sorted low to high by products price")]
+        public async global::System.Threading.Tasks.Task SuccessfulSortedLowToHighByProductsPrice()
         {
             string[] tagsOfScenario = ((string[])(null));
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             string pickleIndex = "0";
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Successful sorted low to high by price products", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Successful sorted low to high by products price", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
 #line 3

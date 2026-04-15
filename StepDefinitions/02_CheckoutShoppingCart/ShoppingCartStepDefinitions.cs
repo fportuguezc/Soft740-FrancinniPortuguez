@@ -28,7 +28,7 @@ namespace ProyectoFinal.StepDefinitions._02_ShoppingCart
 			//Dado que estoy en la página de productos
 		}
 
-		[When(@"I select a product")]
+		[When(@"I select a product to add the cart")]
 		public void WhenISelectAProduct()
 		{
 			_shoppingCartPage.Click_SauceLabsBackpack_AddCart();
@@ -92,6 +92,20 @@ namespace ProyectoFinal.StepDefinitions._02_ShoppingCart
 			//Se valida que se muestra el mensaje de error cuando se ingresa con datos incorrectos
 			ScreenshotHelper.TakeScreenshot(_driver, "BDD_ErrorMessageAfterCheckout");
 			Assert.That(_checkoutShoppingCart.Check_ErrorMessage(), Is.EqualTo("Error: Postal Code is required"), "El mensaje de error debería mostrarse");
+		}
+
+		[When(@"I select the product to remove from the cart")]
+		public void WhenISelectTheProductToRemoveFromTheCart()
+		{
+			_shoppingCartPage.Click_SauceLabsBackpack_RemoveCart();
+		}
+
+		[Then(@"I should not see the product removed from the cart")]
+		public void ThenIShouldNotSeeTheProductRemovedFromTheCart()
+		{
+			//Se valida que se muestra el nombre del usuario después de iniciar sesión
+			ScreenshotHelper.TakeScreenshot(_driver, "BDD_ProductRemovedCartIsEmpty");
+			Assert.That(_shoppingCartPage.Show_SauceLabsBackpack_RemovedCart, "El carrito no debería mostrar 1 producto");
 		}
 	}
 }

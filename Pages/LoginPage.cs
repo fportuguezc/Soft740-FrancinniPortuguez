@@ -18,7 +18,7 @@ namespace ProyectoFinal.Pages
 
 		//Métodos necesarios para interactuar con los elementos de la página
 
-		//Se llena el campo de correo electrónico y contraseña
+		//Se llena el campo de usuario y contraseña
 		public void Fill_LoginForm(String userName, String password)
 		{
 			UsernameField.SendKeys(userName);

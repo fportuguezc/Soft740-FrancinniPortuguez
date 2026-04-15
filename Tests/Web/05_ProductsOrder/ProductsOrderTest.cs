@@ -10,7 +10,6 @@ namespace ProyectoFinal.Tests._05_ProductsOrderTest
 		[Test]
 		public void Caso5_ProductsOrderTest()
 		{
-
 			var loginPage = new LoginPage(Driver);
 
 			//Se hace clic en el enlace "Signup / Login" para acceder a la página de registro

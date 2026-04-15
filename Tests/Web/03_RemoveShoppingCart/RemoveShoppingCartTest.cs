@@ -12,14 +12,15 @@ namespace ProyectoFinal.Tests._03_RemoveShoppingCart
 		{
 			var loginPage = new LoginPage(Driver);
 
-			//Se hace clic en el enlace "Signup / Login" para acceder a la página de registro
+			//Se hace Login" 
 			loginPage.Fill_LoginForm("standard_user","secret_sauce");
 			loginPage.Click_LoginButton();
 
-			var addShoppingCartPage = new ShoppingCartPage(Driver);
-			addShoppingCartPage.Click_SauceLabsBackpack_AddCart();
-
+			//Se agrega el producto "Sauce Labs Backpack" al carrito de compras
 			var removeShoppingCartPage = new ShoppingCartPage(Driver);
+			removeShoppingCartPage.Click_SauceLabsBackpack_AddCart();
+
+			//Se remueve el producto "Sauce Labs Backpack" del carrito de compras
 			removeShoppingCartPage.Click_SauceLabsBackpack_RemoveCart();
 
 			//Se valida que no se muestre el producto "Sauce Labs Backpack" en el carrito de compras

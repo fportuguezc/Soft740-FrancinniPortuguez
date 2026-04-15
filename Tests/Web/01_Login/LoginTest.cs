@@ -12,14 +12,14 @@ namespace ProyectoFinal.Tests._01_Login
 		{
 			var loginPage = new LoginPage(Driver);
 
-			//Se hace clic en el enlace "Signup / Login" para acceder a la página de registro
+			//Se completa el login
 			loginPage.Fill_LoginForm(user, password);
 			loginPage.Click_LoginButton();
 
 			//Se valida si el dato es valido o no para ver que elemento debe ser validado en cada caso
 			if (isValid)
 			{
-				//Se valida que se muestra el nombre del usuario después de iniciar sesión
+				//Se valida que se muestra el carrito de compras después de iniciar sesión
 				ScreenshotHelper.TakeScreenshot(Driver, "loggedUser");
 				Assert.That(loginPage.Check_ShoppingCartIsPresent, "La opción de carrito debería mostrarse");
 			}

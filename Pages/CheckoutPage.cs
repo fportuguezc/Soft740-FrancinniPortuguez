@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 
 namespace ProyectoFinal.Pages
 {
@@ -17,43 +18,47 @@ namespace ProyectoFinal.Pages
 
         //Webelements con los que se interactúa 
         private IWebElement ShoppingCartLink => _driver.FindElement(By.ClassName("shopping_cart_link"));
-        private IWebElement ProductAddedToCart => WaitUntilElementIsVisible(By.CssSelector("div[data-test='inventory-item-name']"));
         private IWebElement CheckoutButton => _driver.FindElement(By.Id("checkout"));
         private IWebElement FirstNameField => _driver.FindElement(By.Id("first-name"));
         private IWebElement LastNameField => _driver.FindElement(By.Id("last-name"));
         private IWebElement ZipPostalCode => _driver.FindElement(By.Id("postal-code"));
         private IWebElement ContinueButton => _driver.FindElement(By.Id("continue"));
         private IWebElement FinishButton => _driver.FindElement(By.Id("finish"));
-        private IWebElement SuccessMessage => WaitUntilElementIsVisible(By.ClassName("complete-header"));
-        private IWebElement ErrorMessage => WaitUntilElementIsVisible(By.CssSelector("h3[data-test='error']"));
 
-		//Métodos necesarios para interactuar con los elementos de la página
+		// Método para ir al carrito
 		public void Click_ShoppingCartLink()
 		{
 			ShoppingCartLink.Click();
 		}
 
+		//Retorna el nombre del producto agregado 
 		public String Check_ProductAddedToCart()
 		{
-			Console.WriteLine("Product name: " + ProductAddedToCart.Text);
+			var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+			var ProductAddedToCart = wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("div[data-test='inventory-item-name']")));
+
 			return ProductAddedToCart.Text;
 		}
 
+		//Método para presionar el botón checkout
 		public void Click_CheckoutButton()
 		{
 			CheckoutButton.Click();
 		}
 
+		//Método para presionar el botón continue
 		public void Click_ContinueButton()
 		{
 			ContinueButton.Click();
 		}
 
+		//Método para presionar el botón finalizar
 		public void Click_FinishButton()
 		{
 			FinishButton.Click();
 		}
 
+		//Se completa el formulario de checkout
 		public void Fill_CheckoutForm(String firstNameField, String lastNameField, String zipPostalCode)
 		{
 			FirstNameField.SendKeys(firstNameField);
@@ -61,33 +66,21 @@ namespace ProyectoFinal.Pages
 			ZipPostalCode.SendKeys(zipPostalCode);
 		}
 
+		//Se retorna el texto de mensaje exitoso
 		public string CheckoutSuccessMessage()
 		{
+			var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+			var SuccessMessage = wait.Until(ExpectedConditions.ElementIsVisible(By.ClassName("complete-header")));
 			return SuccessMessage.Text;
 		}
 
+		//Se retorna el texto del mensaje de error
 		public string Check_ErrorMessage()
 		{
+			var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+			var ErrorMessage = wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("h3[data-test='error']")));
 			return ErrorMessage.Text;
 		}
-
-        // Helper: espera hasta que el elemento esté presente y visible
-        private IWebElement WaitUntilElementIsVisible(By by, int timeoutSeconds = 10)
-        {
-            var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(timeoutSeconds));
-            return wait.Until(d =>
-            {
-                try
-                {
-                    var element = d.FindElement(by);
-                    return element.Displayed ? element : null;
-                }
-                catch (NoSuchElementException)
-                {
-                    return null;
-                }
-            });
-        }
-
+		
 	}
 }

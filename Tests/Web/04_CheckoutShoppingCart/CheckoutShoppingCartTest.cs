@@ -15,27 +15,29 @@ namespace ProyectoFinal.Tests._04_CheckoutShoppingCart
 		{
 			var loginPage = new LoginPage(Driver);
 
-			//Se hace clic en el enlace "Signup / Login" para acceder a la página de registro
+			//Se hace clic Login" 
 			loginPage.Fill_LoginForm("standard_user","secret_sauce");
 			loginPage.Click_LoginButton();
 
+			//Se agrega el producto "Sauce Labs Backpack" al carrito de compras
 			var addShoppingCartPage = new ShoppingCartPage(Driver);
 			addShoppingCartPage.Click_SauceLabsBackpack_AddCart();
 
+			//Se realiza el checkput
 			var checkoutShoppingCart = new CheckoutPage(Driver);
 			checkoutShoppingCart.Click_ShoppingCartLink();
-			ScreenshotHelper.TakeScreenshot(Driver, "ProductAdded");
+			ScreenshotHelper.TakeScreenshot(Driver, "ProductAddedToCart");
 			checkoutShoppingCart.Click_CheckoutButton();
 			checkoutShoppingCart.Fill_CheckoutForm(firstName, lastName, zipCode);
 			ScreenshotHelper.TakeScreenshot(Driver, "CheckoutFormFilled");
 			checkoutShoppingCart.Click_ContinueButton();
 
-			//Se valida si el dato es valido o no para ver que elemento debe ser validado en cada caso
+			//Se valida si el dato es valido o no para ver que flujo seguir
 			if (isValid)
 			{
 
 				checkoutShoppingCart.Click_FinishButton();
-				//Se valida que se muestra el nombre del usuario después de iniciar sesión
+				//Se valida que se muestra el mensaje de éxito cuando se ingresa con datos correctos
 				ScreenshotHelper.TakeScreenshot(Driver, "SuccessCheckout");
 				Assert.That(checkoutShoppingCart.CheckoutSuccessMessage, Is.EqualTo("Thank you for your order!"), "El mensaje de éxito debería mostrarse");
 			}
