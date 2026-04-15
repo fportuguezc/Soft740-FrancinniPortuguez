@@ -48,22 +48,29 @@ ProyectoFinal/
 ## Escenarios Implementados
 
 ## Web- Login válido con credenciales correctas
+- Escenarios parametrizados con data-driven
 - Login inválido y validación de mensaje de error
 - Agregar producto al carrito y validar contador
 - Eliminar producto del carrito
 - Checkout exitoso con datos válidos (JSON)
 - Checkout con datos incompletos y validación de error
-- Validar ordenamiento de productos (precio/nombre)
+- Validar ordenamiento de productos por precio (Low-High)
 
-## BDD (Reqnroll)
-- Flujo completo de compra en SauceDemo (Given-When-Then)
-- Escenarios parametrizados con data-driven
+## BDD (Reqnroll) Flujo completo de compra en SauceDemo (Given-When-Then)
+- Login inválido y validación de mensaje de error
+- Agregar producto al carrito y validar contador
+- Eliminar producto del carrito
+- Checkout exitoso con datos válidos (JSON)
+- Checkout con datos incompletos y validación de error
+- Validar ordenamiento de productos por precio (Low-High)
 
-## API (RestSharp)- GET: consulta de recursos
+## API (RestSharp)
+- GET: consulta de recursos
 - POST: creación de recurso
 - PUT: actualización de recurso
 - DELETE: eliminación de recurso
 
-## Configuración- Configuración por ambiente en Utilities/ConfigReader.cs
+## Configuración
+- Configuración por ambiente en Utilities
 - Data-driven con archivos JSON en TestData/
 - Screenshots automáticos en fallos (ScreenshotHelper.cs)

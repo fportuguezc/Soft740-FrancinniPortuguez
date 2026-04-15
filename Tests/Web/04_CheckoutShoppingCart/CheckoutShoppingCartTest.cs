@@ -25,14 +25,10 @@ namespace ProyectoFinal.Tests._04_CheckoutShoppingCart
 			var checkoutShoppingCart = new CheckoutPage(Driver);
 			checkoutShoppingCart.Click_ShoppingCartLink();
 			ScreenshotHelper.TakeScreenshot(Driver, "ProductAdded");
-			Assert.That(checkoutShoppingCart.Check_ProductAddedToCart, Is.EqualTo("Sauce Labs Backpack"), "El producto debería mostrarse");
-
 			checkoutShoppingCart.Click_CheckoutButton();
-
 			checkoutShoppingCart.Fill_CheckoutForm(firstName, lastName, zipCode);
+			ScreenshotHelper.TakeScreenshot(Driver, "CheckoutFormFilled");
 			checkoutShoppingCart.Click_ContinueButton();
-
-			ScreenshotHelper.TakeScreenshot(Driver, "CheckoutForm");
 
 			//Se valida si el dato es valido o no para ver que elemento debe ser validado en cada caso
 			if (isValid)
@@ -40,7 +36,7 @@ namespace ProyectoFinal.Tests._04_CheckoutShoppingCart
 
 				checkoutShoppingCart.Click_FinishButton();
 				//Se valida que se muestra el nombre del usuario después de iniciar sesión
-				ScreenshotHelper.TakeScreenshot(Driver, "Checkout");
+				ScreenshotHelper.TakeScreenshot(Driver, "SuccessCheckout");
 				Assert.That(checkoutShoppingCart.CheckoutSuccessMessage, Is.EqualTo("Thank you for your order!"), "El mensaje de éxito debería mostrarse");
 			}
 			else

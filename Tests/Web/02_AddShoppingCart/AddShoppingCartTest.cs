@@ -23,7 +23,7 @@ namespace ProyectoFinal.Tests._02_AddShoppingCart
 			shoppingCartPage.Click_SauceLabsBackpack_AddCart();
 			
 			//Se valida que se muestra el nombre del usuario después de iniciar sesión
-			ScreenshotHelper.TakeScreenshot(Driver, "ProductAdded");
+			ScreenshotHelper.TakeScreenshot(Driver, "ProductAddedCartHas1");
 			Assert.That(shoppingCartPage.Show_CartCount, Is.EqualTo("1"), "Elcarrito debería mostrar 1");
 		
 		}

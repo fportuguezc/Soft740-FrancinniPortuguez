@@ -38,7 +38,6 @@ namespace ProyectoFinal.StepDefinitions._02_ShoppingCart
 		public void ThenIShouldSeeTheQuantity()
 		{
 			//Se valida que se muestra el nombre del usuario después de iniciar sesión
-			ScreenshotHelper.TakeScreenshot(_driver, "ProductAdded");
 			Assert.That(_shoppingCartPage.Show_CartCount(), Is.EqualTo("1"), "Elcarrito debería mostrar 1");
 		}
 
@@ -51,7 +50,6 @@ namespace ProyectoFinal.StepDefinitions._02_ShoppingCart
 		[Then(@"I should see the products added to the cart")]
 		public void ThenIShouldSeeTheProductsAddedToTheCart()
 		{
-			ScreenshotHelper.TakeScreenshot(_driver, "ProductAdded");
 			Assert.That(_checkoutShoppingCart.Check_ProductAddedToCart(), Is.EqualTo("Sauce Labs Backpack"), "El producto debería mostrarse");
 		}
 
@@ -65,14 +63,13 @@ namespace ProyectoFinal.StepDefinitions._02_ShoppingCart
 		public void WhenIFillCheckoutForm( string firtstName, string lastName, string zipCode)
 		{
 			_checkoutShoppingCart.Fill_CheckoutForm(firtstName, lastName, zipCode);
+			ScreenshotHelper.TakeScreenshot(_driver, "BDD_CheckoutForm");
 		}
 
 		[When(@"I click the continue button")]
 			public void WhenIClickTheContinueButton()
 			{
 			_checkoutShoppingCart.Click_ContinueButton();
-
-			ScreenshotHelper.TakeScreenshot(_driver, "CheckoutForm");
 		}
 
 		[When(@"I click the finish button")]
@@ -85,7 +82,7 @@ namespace ProyectoFinal.StepDefinitions._02_ShoppingCart
 		public void ThenIShouldSeeTheCheckoutMessage()
 		{
 			//Se valida que se muestra el nombre del usuario después de iniciar sesión
-			ScreenshotHelper.TakeScreenshot(_driver, "Checkout");
+			ScreenshotHelper.TakeScreenshot(_driver, "BDD_SuccessCheckout");
 			Assert.That(_checkoutShoppingCart.CheckoutSuccessMessage(), Is.EqualTo("Thank you for your order!"), "El mensaje de éxito debería mostrarse");
 		}
 
@@ -93,7 +90,7 @@ namespace ProyectoFinal.StepDefinitions._02_ShoppingCart
 		public void ThenIShouldSeeTheCheckoutErrorMessage()
 		{
 			//Se valida que se muestra el mensaje de error cuando se ingresa con datos incorrectos
-			ScreenshotHelper.TakeScreenshot(_driver, "ErrorMessageAfterCheckout");
+			ScreenshotHelper.TakeScreenshot(_driver, "BDD_ErrorMessageAfterCheckout");
 			Assert.That(_checkoutShoppingCart.Check_ErrorMessage(), Is.EqualTo("Error: Postal Code is required"), "El mensaje de error debería mostrarse");
 		}
 	}

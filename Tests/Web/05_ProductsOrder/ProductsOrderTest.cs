@@ -2,7 +2,7 @@
 using ProyectoFinal.Utils;
 using static Microsoft.ApplicationInsights.MetricDimensionNames.TelemetryContext;
 
-namespace ProyectoFinal.Tests_05_ProductsOrderTest
+namespace ProyectoFinal.Tests._05_ProductsOrderTest
 {
 	public class ProductsOrderTest : TestBase
 	{
@@ -26,7 +26,7 @@ namespace ProyectoFinal.Tests_05_ProductsOrderTest
 
 			// Crear lista ordenada
 			var sortedPrices = prices.OrderBy(p => p).ToList();
-			ScreenshotHelper.TakeScreenshot(Driver, "SortedByPrice");
+			ScreenshotHelper.TakeScreenshot(Driver, "SortedByPriceLowHigh");
 			Assert.That(prices, Is.EqualTo(sortedPrices), "Los precios no están ordenados correctamente.");
 		}
 	}

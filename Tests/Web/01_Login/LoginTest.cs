@@ -26,7 +26,7 @@ namespace ProyectoFinal.Tests._01_Login
 			else 
 			{
 				//Se valida que se muestra el mensaje de error cuando se ingresa con datos incorrectos
-				ScreenshotHelper.TakeScreenshot(Driver, "ErrorMessageAfterLogin.png");
+				ScreenshotHelper.TakeScreenshot(Driver, "ErrorMessageAfterLoginIncorrect");
 				Assert.That(loginPage.Check_ErrorMessage, Is.EqualTo("Epic sadface: Username and password do not match any user in this service"), "El mensaje de error debería mostrarse");
 			}
 		}

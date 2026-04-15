@@ -42,7 +42,6 @@ namespace ProyectoFinal.StepDefinitions._01_Login
 		public void WhenIClickTheLoginButton()
 		{
 			_loginPage.Click_LoginButton();
-			ScreenshotHelper.TakeScreenshot(_driver, "BDD_LoginByUserTest_test.png");
 		}
 
 		[Then(@"I should see the ""(.*)"" button")]
@@ -56,7 +55,7 @@ namespace ProyectoFinal.StepDefinitions._01_Login
 		public void ThenIShouldSeeTheErrorMessage(string message)
 		{
 			Assert.That(_loginPage.Check_ErrorMessage, Is.EqualTo("Epic sadface: Username and password do not match any user in this service"), "El mensaje de error debería mostrarse");
-			ScreenshotHelper.TakeScreenshot(_driver, "ErrorMessageAfterLogin.png");
+			ScreenshotHelper.TakeScreenshot(_driver, "BDD_ErrorMessageAfterLogin");
 		}
 	}
 }

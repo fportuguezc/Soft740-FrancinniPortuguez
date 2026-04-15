@@ -22,8 +22,8 @@ namespace ProyectoFinal.Tests._03_RemoveShoppingCart
 			var removeShoppingCartPage = new ShoppingCartPage(Driver);
 			removeShoppingCartPage.Click_SauceLabsBackpack_RemoveCart();
 
-			//Se valida que se muestra el nombre del usuario después de iniciar sesión
-			ScreenshotHelper.TakeScreenshot(Driver, "ProductRemoved");
+			//Se valida que no se muestre el producto "Sauce Labs Backpack" en el carrito de compras
+			ScreenshotHelper.TakeScreenshot(Driver, "ProductRemovedCartEmpty");
 			Assert.That(removeShoppingCartPage.Show_SauceLabsBackpack_RemovedCart , "El carrito no debería mostrar 1 producto");
 		
 		}
