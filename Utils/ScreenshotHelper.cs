@@ -6,7 +6,7 @@ namespace ProyectoFinal.Utils
     {
         public static void TakeScreenshot(IWebDriver driver, string fileName)
         {
-			var projectRoot = Directory.GetParent(AppContext.BaseDirectory)!.Parent!.Parent!.Parent!.FullName;
+			var projectRoot = Directory.GetParent(AppContext.BaseDirectory)!.Parent!.Parent!.FullName;
 			var screenshotsDir = Path.Combine(projectRoot, "screenshots");
 			Directory.CreateDirectory(screenshotsDir);
 

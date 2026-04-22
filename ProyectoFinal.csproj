@@ -9,13 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="screenshots\**" />
-    <EmbeddedResource Remove="screenshots\**" />
-    <None Remove="screenshots\**" />
-    <ReqnrollFeatureFile Remove="screenshots\**" />
-  </ItemGroup>
-
-  <ItemGroup>
 	  <PackageReference Include="coverlet.collector" Version="10.0.0">
 	    <PrivateAssets>all</PrivateAssets>
 	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -46,11 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ReqnrollObsoleteCodeBehindFiles Remove="screenshots\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ReqnrollLegacyCodeBehindFiles Remove="screenshots\**" />
+    <Folder Include="screenshots\" />
   </ItemGroup>
 
 </Project>

@@ -17,7 +17,7 @@ namespace ProyectoFinal.Reporting
 			private ReportManager()
 			{
 				_reportDir = Path.Combine(
-					Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)!.Parent!.Parent!.Parent!.FullName,
+					Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)!.Parent!.Parent!.FullName,
 					"Reports");
 				Directory.CreateDirectory(_reportDir);
 
