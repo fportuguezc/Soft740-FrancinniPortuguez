@@ -2,7 +2,6 @@
 using OpenQA.Selenium;
 using ProyectoFinal.Pages;
 using Reqnroll;
-using System;
 
 namespace ProyectoFinal.StepDefinitions._01_Login
 {
@@ -11,7 +10,7 @@ namespace ProyectoFinal.StepDefinitions._01_Login
 	{
 		private readonly ScenarioContext _scenarioContext;
 		private readonly IWebDriver _driver;
-		private LoginPage _loginPage; 
+		private readonly LoginPage _loginPage; 
 		public LoginStepDefinitions(ScenarioContext scenarioContext)
 		{
 			_scenarioContext = scenarioContext;

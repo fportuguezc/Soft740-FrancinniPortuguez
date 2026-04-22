@@ -1,10 +1,10 @@
 ﻿using ProyectoFinal.Pages;
+using ProyectoFinal.Reporting;
 using ProyectoFinal.Utils;
-using static Microsoft.ApplicationInsights.MetricDimensionNames.TelemetryContext;
 
 namespace ProyectoFinal.Tests._05_ProductsOrderTest
 {
-	public class ProductsOrderTest : TestBase
+	public class ProductsOrderTest : ReportedTestBase
 	{
 
 		[Test]

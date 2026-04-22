@@ -1,10 +1,11 @@
 ﻿using ProyectoFinal.Utils;
 using ProyectoFinal.Tests.Web.Login.Asserts;
 using ProyectoFinal.Pages;
+using ProyectoFinal.Reporting;
 
 namespace ProyectoFinal.Tests._01_Login
 {
-	public class LoginTest : TestBase
+	public class LoginTest : ReportedTestBase
 	{
 
 		[Test, TestCaseSource(typeof(LoginDataSource), nameof(LoginDataSource.UsersIsValid))]

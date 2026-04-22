@@ -13,14 +13,16 @@ El sistema bajo prueba es **SauceDemo**, un sitio de e-commerce ficticio diseña
 
 ## Estructura del Proyecto
 ProyectoFinal/ 
-├── Pages/              # Page Objects 
-├── Tests/ 
-├── WebTests/      # Pruebas Selenium │    
-├── BDD/           # Features y Steps Reqnroll │    
-└── ApiTests/      # Pruebas RestSharp 
-├── Utilities/          # DriverFactory, Helpers, Configuración 
-├── TestData/           # Archivos JSON 
-├── Reports/            # Reportes generados └── README.md
+├── Pages/          
+├── Reporting/      
+├── StepDefinitions/
+├── TestData/              
+├── Tests/
+├──├── API
+├──├── BDD
+├──├── Web
+├── Utils 
+└── README.md
 
 ---
 
@@ -74,3 +76,6 @@ ProyectoFinal/
 - Configuración por ambiente en Utilities
 - Data-driven con archivos JSON en TestData/
 - Screenshots automáticos en fallos (ScreenshotHelper.cs)
+
+## Reportes
+- Se genera reporte para los casos de prueba web, api y BDD utilizando la librería Extended reports. 

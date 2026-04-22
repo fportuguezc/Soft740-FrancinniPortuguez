@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
+﻿using System.Globalization;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
@@ -25,6 +21,7 @@ namespace ProyectoFinal.Pages
 		private IWebElement SortDropdown => _driver.FindElement(By.ClassName("product_sort_container"));
 		private IList<IWebElement> Prices => _driver.FindElements(By.ClassName("inventory_item_price"));
 
+		//Método para seleccionar una opción de ordenamiento en el dropdown de ordenamiento de productos, utilizando la clase SelectElement para seleccionar por texto
 		public void SortBy(string optionText)
 		{
 			SelectElement select = new SelectElement(SortDropdown);

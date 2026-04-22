@@ -2,7 +2,6 @@
 using OpenQA.Selenium;
 using ProyectoFinal.Pages;
 using Reqnroll;
-using System;
 
 namespace ProyectoFinal.StepDefinitions._02_ShoppingCart
 {
@@ -37,8 +36,8 @@ namespace ProyectoFinal.StepDefinitions._02_ShoppingCart
 		[Then(@"I should see the cart quantity according to the products added")]
 		public void ThenIShouldSeeTheQuantity()
 		{
-			//Se valida que se muestra el nombre del usuario después de iniciar sesión
-			Assert.That(_shoppingCartPage.Show_CartCount(), Is.EqualTo("1"), "Elcarrito debería mostrar 1");
+			//Se valida que el carrito muestra la cantidad correcta de productos agregados
+			Assert.That(_shoppingCartPage.Show_CartCount(), Is.EqualTo("1"), "El carrito debería mostrar 1");
 		}
 
 		[When(@"I click the cart button")]
@@ -50,6 +49,7 @@ namespace ProyectoFinal.StepDefinitions._02_ShoppingCart
 		[Then(@"I should see the products added to the cart")]
 		public void ThenIShouldSeeTheProductsAddedToTheCart()
 		{
+			//Se valida que el producto agregado al carrito se muestra correctamente
 			Assert.That(_checkoutShoppingCart.Check_ProductAddedToCart(), Is.EqualTo("Sauce Labs Backpack"), "El producto debería mostrarse");
 		}
 
@@ -67,8 +67,8 @@ namespace ProyectoFinal.StepDefinitions._02_ShoppingCart
 		}
 
 		[When(@"I click the continue button")]
-			public void WhenIClickTheContinueButton()
-			{
+		public void WhenIClickTheContinueButton()
+		{
 			_checkoutShoppingCart.Click_ContinueButton();
 		}
 
@@ -81,7 +81,7 @@ namespace ProyectoFinal.StepDefinitions._02_ShoppingCart
 		[Then(@"I should see the checkout success message")]
 		public void ThenIShouldSeeTheCheckoutMessage()
 		{
-			//Se valida que se muestra el nombre del usuario después de iniciar sesión
+			//Se valida que se muestra el mensaje de éxito después de finalizar el checkout
 			ScreenshotHelper.TakeScreenshot(_driver, "BDD_SuccessCheckout");
 			Assert.That(_checkoutShoppingCart.CheckoutSuccessMessage(), Is.EqualTo("Thank you for your order!"), "El mensaje de éxito debería mostrarse");
 		}
@@ -103,7 +103,7 @@ namespace ProyectoFinal.StepDefinitions._02_ShoppingCart
 		[Then(@"I should not see the product removed from the cart")]
 		public void ThenIShouldNotSeeTheProductRemovedFromTheCart()
 		{
-			//Se valida que se muestra el nombre del usuario después de iniciar sesión
+			//Se valida que el producto se ha eliminado del carrito y el carrito está vacío
 			ScreenshotHelper.TakeScreenshot(_driver, "BDD_ProductRemovedCartIsEmpty");
 			Assert.That(_shoppingCartPage.Show_SauceLabsBackpack_RemovedCart, "El carrito no debería mostrar 1 producto");
 		}

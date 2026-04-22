@@ -1,10 +1,10 @@
 ﻿using ProyectoFinal.Pages;
+using ProyectoFinal.Reporting;
 using ProyectoFinal.Utils;
-using static Microsoft.ApplicationInsights.MetricDimensionNames.TelemetryContext;
 
 namespace ProyectoFinal.Tests._03_RemoveShoppingCart
 {
-	public class RemoveShoppingCartTest : TestBase
+	public class RemoveShoppingCartTest : ReportedTestBase
 	{
 
 		[Test]

@@ -1,9 +1,10 @@
 ﻿using ProyectoFinal.Pages;
+using ProyectoFinal.Reporting;
 using ProyectoFinal.Utils;
 
 namespace ProyectoFinal.Tests._02_AddShoppingCart
 {
-	public class AddShoppingCartTest : TestBase
+	public class AddShoppingCartTest : ReportedTestBase
 	{
 
 		[Test]

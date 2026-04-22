@@ -1,11 +1,12 @@
-﻿using ProyectoFinal.Test.API.Dtos;
-using RestSharp;
-using System.Net;
+﻿using System.Net;
 using System.Text.Json;
+using ProyectoFinal.Reporting;
+using ProyectoFinal.Test.API.Dtos;
+using RestSharp;
 
 namespace ProyectoFinal.Tests.API
 {
-	public class API
+	public class API : ReportedTestBase
 	{
 		private const string BaseUrl = "https://jsonplaceholder.typicode.com/";
 

@@ -1,4 +1,5 @@
 ﻿using ProyectoFinal.Pages;
+using ProyectoFinal.Reporting;
 using ProyectoFinal.Tests.Web.Checkout.Asserts;
 using ProyectoFinal.Tests.Web.Login.Asserts;
 using ProyectoFinal.Utils;
@@ -6,9 +7,8 @@ using static Microsoft.ApplicationInsights.MetricDimensionNames.TelemetryContext
 
 namespace ProyectoFinal.Tests._04_CheckoutShoppingCart
 {
-	public class CheckoutShoppingCartTest : TestBase
+	public class CheckoutShoppingCartTest : ReportedTestBase
 	{
-
 
 		[Test, TestCaseSource(typeof(CheckoutDataSource), nameof(CheckoutDataSource.CheckoutValid))]
 		public void Caso4_CheckoutShoppingCartTest(string firstName, string lastName,string zipCode, bool isValid)
@@ -23,7 +23,7 @@ namespace ProyectoFinal.Tests._04_CheckoutShoppingCart
 			var addShoppingCartPage = new ShoppingCartPage(Driver);
 			addShoppingCartPage.Click_SauceLabsBackpack_AddCart();
 
-			//Se realiza el checkput
+			//Se realiza el checkout
 			var checkoutShoppingCart = new CheckoutPage(Driver);
 			checkoutShoppingCart.Click_ShoppingCartLink();
 			ScreenshotHelper.TakeScreenshot(Driver, "ProductAddedToCart");
@@ -35,7 +35,6 @@ namespace ProyectoFinal.Tests._04_CheckoutShoppingCart
 			//Se valida si el dato es valido o no para ver que flujo seguir
 			if (isValid)
 			{
-
 				checkoutShoppingCart.Click_FinishButton();
 				//Se valida que se muestra el mensaje de éxito cuando se ingresa con datos correctos
 				ScreenshotHelper.TakeScreenshot(Driver, "SuccessCheckout");
@@ -47,8 +46,6 @@ namespace ProyectoFinal.Tests._04_CheckoutShoppingCart
 				ScreenshotHelper.TakeScreenshot(Driver, "ErrorMessageAfterCheckout");
 				Assert.That(checkoutShoppingCart.Check_ErrorMessage, Is.EqualTo("Error: Postal Code is required"), "El mensaje de error debería mostrarse");
 			}
-		
-		
 		}
 	}
 
